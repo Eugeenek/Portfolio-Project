@@ -18,7 +18,6 @@ Route::get('/about','AboutController@index');
 Route::get('/contact','ContactController@index');
 
 
- 
 
 Route::group(['middleware' => 'checkrole:admin'], function () {
 	Route::group(['namespace' => 'Admin'], function()
@@ -27,6 +26,7 @@ Route::group(['middleware' => 'checkrole:admin'], function () {
 
 		    Route::get('/dashboard','AdminController@index');
 		    Route::resource('users','UsersController');
+
 		});
 		
 		  // Controllers Within The "App\Http\Controllers\Admin" Namespace

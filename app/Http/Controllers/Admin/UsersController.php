@@ -11,6 +11,7 @@ class UsersController extends Controller
 	private $data = array();
     public function index(Request $request)
     {
+
     	$this->data['user'] = $request->user();
     	
         $this->data['users'] = User::paginate(15);
@@ -39,11 +40,19 @@ class UsersController extends Controller
     {
     	$this->data['user'] = User::findOrFail($user_id)->toArray();
     	$this->data['action'] = url('admin/users/{users}');
-    	var_dump($this->data);
-    	# code...
+        $this->data['username']=$this->data['user']['first_name'].' '.$this->data['user']['last_name'];
+        $assets['images'] = asset('public/image/test.png');
+        $assets['styles'] = asset('public/css/test.css');
+        $this->data['assets'] = $assets;
+
+        
+        $this->data['url'] = url('admin/users');
+        $this->data['update_action'] = url('admin/users/'.$user_id.'/update');
+    	return view('admin.users.useredit', $this->data);
+        //var_dump($this->data);exit;
     }
 
-        public function create()
+    public function create()
     {
         //
     }
@@ -59,6 +68,7 @@ class UsersController extends Controller
         //
     }
 
+   
     /**
      * Display the specified resource.
      *
@@ -79,7 +89,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       var_dump($id);exit;
     }
 
     /**

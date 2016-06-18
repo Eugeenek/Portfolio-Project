@@ -248,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ $url }}"><i class="fa fa-link"></i> <span>Link</span></a></li>
+            <li class="active"><a href="{{ $url }}"><i class="fa fa-users" aria-hidden="true"></i> <span>Mange Users</span></a></li>
             <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>

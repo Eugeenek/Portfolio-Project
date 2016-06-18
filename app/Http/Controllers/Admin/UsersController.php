@@ -12,8 +12,9 @@ class UsersController extends Controller
     public function index(Request $request)
     {
     	$this->data['user'] = $request->user();
-    	$this->data['users']= User::all()->toArray();
-
+    	
+        $this->data['users'] = User::paginate(15);
+        //var_dump($users);exit;
 		$this->data['username']=$this->data['user']['first_name'].' '.$this->data['user']['last_name'];
 			
 		$assets['images'] = asset('public/image/test.png');

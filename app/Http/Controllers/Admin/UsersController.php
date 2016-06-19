@@ -38,7 +38,9 @@ class UsersController extends Controller
      */
     public function edit($user_id)
     {
+
     	$this->data['user'] = User::findOrFail($user_id)->toArray();
+       
     	$this->data['action'] = url('admin/users/{users}');
         $this->data['username']=$this->data['user']['first_name'].' '.$this->data['user']['last_name'];
         $assets['images'] = asset('public/image/test.png');
@@ -89,7 +91,9 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-       var_dump($id);exit;
+        $user = User::findOrFail($id);
+        $user->update($request->all());
+        return redirect('admin/users');
     }
 
     /**

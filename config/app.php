@@ -1,10 +1,10 @@
-<?php
+ <?php
 
 return [ 
 
     /*
     |--------------------------------------------------------------------------
-    | Application Environment Comment test
+    | Application Environment Comment  test
     |--------------------------------------------------------------------------
     |
     | This value determines the "environment" your application is currently
